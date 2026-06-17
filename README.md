@@ -1,35 +1,32 @@
-# greenstep-carbon-tracker 
-# 🌿 GreenStep — Carbon Footprint Tracker
+# GreenStep — Test Suite
 
-> Built for **PromptWars Challenge 3** — Carbon Footprint Awareness Platform by Google for Developers
+This folder contains unit tests for the core carbon footprint calculation logic used in `greenstep.html`.
 
-## 🔗 Live Demo
-👉 https://stunning-moonbeam-d44726.netlify.app/
+## What's tested
 
-## 📌 Problem Statement
-Design a solution that helps individuals understand, track, and reduce their carbon footprint through simple actions and personalized insights.
+- **Transport calculations** — car, bus, and flight emission math, including combined totals
+- **Diet calculations** — diet type factors, food waste impact, local food multiplier
+- **Energy calculations** — electricity/LPG emissions, solar panel reduction, AC usage
+- **Water calculations** — shower duration impact, water heating method differences
+- **Grading logic** — A+ to D grade boundaries, including edge cases at exact thresholds
+- **Trees-needed calculator** — offset calculation accuracy
+- **Input sanitization** — negative numbers, NaN, undefined values are handled safely
+- **Edge cases** — extreme inputs, zero values, ensuring no negative or invalid totals
 
-## 💡 Solution
-GreenStep is a personal carbon footprint tracker that covers 6 life categories:
+## How to run
 
-- 🚗 Transport (car, public transport, flights)
-- 🥗 Diet (diet type, food waste)
-- ⚡ Energy (electricity, LPG, solar)
-- 💧 Water (shower, laundry, water heating)
-- 🛍️ Shopping (clothes, online orders, electronics)
-- ♻️ Waste (plastic, recycling habits)
+### In Node.js
+```bash
+node test.js
+```
 
-## ✨ Features
-- 📊 Daily & annual CO2 calculation
-- 🎯 Personal grade from A+ to D
-- 🌳 Trees needed to offset your footprint
-- 💡 Personalized tips based on your highest emission category
-- 📤 Share results on WhatsApp & LinkedIn
+### In a browser
+Open `test.html` in any browser. Results appear on the page and in the browser console (F12).
 
-## 🛠️ Built With
-- HTML, CSS, JavaScript
-- Built using AI prompting (Claude)
-- Deployed on Netlify
+## Results
 
-## 👩‍💻 Author
-Thamma Pavani | #PromptWars #GoogleForDevelopers #BuildWithAI
+All 22 tests currently pass, covering the emission-factor math, grading thresholds, and input validation used throughout the GreenStep app.
+
+## Why this matters
+
+Carbon calculations need to be trustworthy — if the math is wrong, the entire app's purpose (helping people understand their real footprint) falls apart. These tests catch regressions if the formulas are ever changed during future feature development.
